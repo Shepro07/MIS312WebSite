@@ -1,0 +1,68 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>Project02_Milestone_3.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+  </head>
+  <body>
+    <h1 id="project02-milestone-3-functions-asserts-for-sensor-logic">Project02 — Milestone 3: Functions + Asserts for Sensor Logic</h1>
+    <p>
+      <strong>Timing:</strong> Weeks 7–8<br /><strong>Tools:</strong> Raspberry Pi + GrovePi+<br /><strong>Development Tool:</strong> VS Code SSH extension (required)<br /><strong>Submission:</strong> OneNote Artifact (PDF) + project files to D2L</p>
+    <hr />
+    <h2 id="objective">Objective</h2>
+    <p>Refactor sensor logic into a function and add asserts for expected behavior.</p>
+    <hr />
+    <h2 id="student-tasks">Student Tasks</h2>
+    <ol>
+      <li>Create a helper function that returns status (LOW/OK/HIGH).</li>
+      <li>Use it inside your sensor loop.</li>
+      <li>Add at least 3 asserts for your status function.</li>
+      <li>AI review (required): ask for one clarity improvement; implement it.</li>
+    </ol>
+    <hr />
+    <h2 id="vs-code-ssh-exercise-refactor-on-the-pi-required">VS Code SSH Exercise — Refactor on the Pi (Required)</h2>
+    <h3 id="task-5-implement-your-refactor-in-a.py-file-on-the-pi">Task 5 — Implement your refactor in a <code>.py</code> file on the Pi</h3>
+    <ol>
+      <li>Connect to the Pi using <strong>VS Code Remote - SSH</strong>.</li>
+      <li>Create a project folder on the Pi:
+<ul><li><code>~/MIS312/project02/</code></li></ul></li>
+      <li>Create your milestone file:
+<ul><li><code>milestone3_status_function.py</code></li></ul></li>
+      <li>Put your status function + asserts into this file.</li>
+    </ol>
+    <h3 id="task-6-run-on-the-pi-and-verify-asserts">Task 6 — Run on the Pi and verify asserts</h3>
+    <p>Run:</p>
+    <pre>
+      <code class="language-bash">python3 milestone3_status_function.py
+</code>
+    </pre>
+    <h3 id="task-7-troubleshooting-required">Task 7 — Troubleshooting (required)</h3>
+    <p>Trigger and fix one issue:</p>
+    <ul>
+      <li>Example: change a threshold so an assert fails → observe → fix threshold</li>
+    </ul>
+    <h3 id="add-to-onenote-artifact">Add to OneNote Artifact</h3>
+    <ul>
+      <li>Screenshot of VS Code showing file on the Pi</li>
+      <li>Screenshot of terminal run (asserts passing)</li>
+      <li>Screenshot of the troubleshooting fail/fix</li>
+    </ul>
+    <h2 id="onenote-artifact-requirements">OneNote Artifact Requirements</h2>
+    <ul>
+      <li>Function + asserts</li>
+      <li>Screenshot of Pi running</li>
+      <li>Screenshot of asserts passing</li>
+      <li>AI prompt + summary</li>
+      <li>Reflection: how functions + asserts improved reliability</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>Project02_Milestone_2.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+  </head>
+  <body>
+    <h1 id="project02-milestone-2-controlled-sensor-modification-small-changes">Project02 — Milestone 2: Controlled Sensor Modification (Small Changes)</h1>
+    <p>
+      <strong>Timing:</strong> Weeks 4–6<br /><strong>Tools:</strong> Raspberry Pi + GrovePi+<br /><strong>Development Tool:</strong> RealVNC editor or VS Code SSH (keep changes small)<br /><strong>Submission:</strong> OneNote Artifact (PDF) + modified <code>.py</code> file(s) to D2L</p>
+    <hr />
+    <h2 id="objective">Objective</h2>
+    <p>Make safe, small modifications to a provided sensor script and prove your changes work.</p>
+    <hr />
+    <h2 id="student-tasks">Student Tasks</h2>
+    <ol>
+      <li>Choose ONE sensor script to modify.</li>
+      <li>Make TWO small modifications:
+<ul><li>threshold message, clearer prints, faster/slower delay, trigger counter, etc.</li></ul></li>
+      <li>Run and verify changes with output evidence.</li>
+      <li>AI check (required): ask what bug to watch for; verify against it.</li>
+    </ol>
+    <hr />
+    <h2 id="vs-code-ssh-exercise-required">VS Code SSH Exercise (Required)</h2>
+    <h3 id="task-5-use-vs-code-ssh-to-edit-on-the-raspberry-pi">Task 5 — Use VS Code SSH to edit on the Raspberry Pi</h3>
+    <ol>
+      <li>In VS Code, install the <strong>Remote - SSH</strong> extension (if not already installed).</li>
+      <li>Connect to your assigned Raspberry Pi using SSH (profile provided in class).</li>
+      <li>Open the folder that contains your chosen sensor script.</li>
+      <li>Save your modified script as a NEW file:
+<ul><li><code>milestone2_&lt;sensorname&gt;.py</code></li></ul></li>
+    </ol>
+    <h3 id="task-6-run-from-the-vs-code-terminal-on-the-pi">Task 6 — Run from the VS Code terminal (on the Pi)</h3>
+    <p>In the VS Code terminal connected to the Pi, run:</p>
+    <pre>
+      <code class="language-bash">python3 milestone2_&lt;sensorname&gt;.py
+</code>
+    </pre>
+    <h3 id="task-7-troubleshooting-required">Task 7 — Troubleshooting (required)</h3>
+    <p>Create one safe troubleshooting scenario and fix it:</p>
+    <ul>
+      <li>Example: stop the program with Ctrl+C, then restart it cleanly</li>
+      <li>Example: introduce a small typo, observe error, fix it</li>
+    </ul>
+    <p>Add screenshots of the error and the fix to your OneNote Artifact.</p>
+    <h2 id="onenote-artifact-requirements">OneNote Artifact Requirements</h2>
+    <ul>
+      <li>Before/After code snippet</li>
+      <li>Screenshot showing new behavior</li>
+      <li>AI prompt + summary</li>
+      <li>Reflection: which change was hardest and why</li>
+    </ul>
+  </body>
+</html>

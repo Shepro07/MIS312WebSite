@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!--
+        HomePage.html
+        -------------
+        Purpose: Main student dashboard for MIS312, showing personal/course info,
+                 attendance form, and assignment report form.
+        Permissions:
+            - Students: Submit forms
+            - Instructor: Maintains courseConstants.js and this HTML template
+        Dependencies:
+            - /studentWebsiteRootfolder/studentConstants.js      (student editable)
+            - /ReadOnly/courseConstants.js                       (instructor editable)
+            - /ReadOnly/domForms.js                              (logic, instructor editable)
+            - /ReadOnly/bootstrap.css, bootstrap.js, jquery-1.js (UI)
+        Author: Patrick G Paulson + ChatGPT, June 2025
+    -->
+
+    <title>MIS312 Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap for styling -->
+    <link href="../ReadOnly/bootstrap.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+    <!--
+        Heading dynamically populated by domForms.js using courseConstants.js/studentConstants.js.
+        If any required variables are missing, will show "undefined".
+    -->
+    <div id="Heading" class="col-lg-12"></div>
+    <div class="col-lg-12"><hr /></div>
+
+    <!-- ========== Attendance Submission Form ========== -->
+    <form class="container-fluid col-lg-4" action="https://eprofessor.azurewebsites.net/Codex/SubmitAttendance.aspx"
+          method="post" id="frmAttendance" autocomplete="off">
+        <!-- Student & course fields auto-filled by domForms.js -->
+        <input name="FirstName" type="hidden" />
+        <input name="LastName" type="hidden" />
+        <input name="StarID" type="hidden" />
+        <input name="pin" type="hidden" />
+        <input name="email" type="hidden" />
+        <input name="Semester" type="hidden" />
+        <input name="Class" type="hidden" />
+        <input name="Section" type="hidden" />
+        <input name="assignment" value="Attendance" type="hidden" />
+        <input name="InstID" value="00617282" type="hidden" />
+        <input class="btn-block btn-lg" type="submit" value="Submit Class Attendance" />
+        <!-- Attendance form warning area -->
+        <div id="attendanceWarning"></div>
+    </form>
+    <hr />
+
+    <!-- ========== Assignment Submission Report Form ========== -->
+    <form class="container-fluid col-lg-4"
+          action="https://eprofessor.azurewebsites.net/Codex/Grading/AssignmentSubmissionReport.aspx"
+          method="post" id="frmAssignmentReport" autocomplete="off">
+        <!-- Student & course fields auto-filled by domForms.js -->
+        <input name="FirstName" type="hidden" />
+        <input name="LastName" type="hidden" />
+        <input name="StarID" type="hidden" />
+        <input name="pin" type="hidden" />
+        <input name="Semester" type="hidden" />
+        <input name="Class" type="hidden" />
+        <input name="Section" type="hidden" />
+        <input class="btn-block btn-lg"  name="Submit" value="Run Assignment Submissions Report" type="submit" />
+        <!-- Assignment report warning area -->
+        <div id="assignmentWarning"></div>
+    </form>
+    <hr />
+
+
+<!-- ========== Student Email Button Link ========== -->
+<div class="container-fluid col-lg-4">
+    <!-- PgP 3/2/2020: JavaScript-generated mailto link for student/instructor contact -->
+    <a id="emailStudentButton" href="#" 
+       class="btn-lg btn-block text-center"
+        style="border: 1.5px solid #000 "; ">
+    </a>
+    <hr />
+</div>
+
+
+   <!-- 
+    ========== Student Email Hyperlink-Optional ========== 
+    <div class="container-fluid col-lg-4">
+        <div id="emailStudent"></div>
+        <hr />
+    </div>
+    -->
+
+
+    <!-- Navigation Links -->
+<div class="row" style="margin-bottom:1em;">
+  <div class="col-xs-12 text-left">
+    <ul class="list-inline" style="margin-bottom:0;  font-size:2em; width:100%;" >
+      <li style="margin: 0 1.25em;">
+        <a href="https://eprofessor.azurewebsites.net/MIS312/default.html"  target="_blank">Syllabus</a>
+      </li>
+      <li style="margin: 0 1.25em;">
+        <a href="https://winona.learn.minnstate.edu/d2l/home/7133215" target="_blank">D2L</a>
+      </li>
+      <li style="margin: 0 1.25em;">
+        <span id="nwid"></span>
+      </li>
+      <li style="margin: 0 1.25em;">
+        <a href="https://github.com"  target="_blank">GitHub</a>
+      </li>
+      <li style="margin: 0 1.25em;">
+        <a href="https://eprofessor.azurewebsites.net/ai/mis312.html"  target="_blank">AI Assistant</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="table-responsive container-fluid ">
+
+    <p>
+        Note: Actual Due Dates in D2L Calendar<br />
+    </p>
+
+    <table  class="table table-striped table-hover table-sm table-bordered"  >
+        <tbody>
+            <tr class="text-center">
+                <th scope="col"  >Week</th>
+                <th scope="col"    >Due-Monday</th>
+                <th scope="col"  ><a href="OneNote_Artifact_Template_MIS312_UPDATED_v2.html">AI Assisted Python</a></th>
+                <th scope="col"  >Formative</th>
+                <th scope="col"  ><a href="https://eprofessor.azurewebsites.net/MIS312/Project02/default.html">Project</a></th>
+                <th scope="col"  ><a href="OneNote_Artifact_Template_MIS312_UPDATED_v2.html">P2Milestones</a></th>
+            </tr>
+            <tr>
+                <td  >1</td>
+                <td    >1/19/26</td>
+                <td  ><a class="bg-info text-white" href="https://eprofessor.azurewebsites.net/HPIA/HPIA.html" target="_blank">HPIA</a></td>
+                <td  ><a class="bg-info text-white" href="Formative00/Formative00_1.html" target="_blank">Formative00_1</a></td>
+                <td  >Project01-<a href="https://eprofessor.azurewebsites.net/Code/EntryFormWebsiteURL.asp" target="_blank" class="bg-info text-white">submit url</a></td>
+                <td  >M1-Sensors</td>
+            </tr>
+            <tr>
+                <td  >1</td>
+                <td    >1/19/26</td>
+                <td  >&nbsp;</td>
+                <td  ><a href="Formative00/Formative00_2.html">Formative00_2</a></td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+            </tr>
+            <tr>
+                <td  >1</td>
+                <td    >1/19/26</td>
+                <td  >&nbsp;</td>
+                <td  ><a href="Formative00/Formative00_3.html">Formative00_3</a></td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+            </tr>
+            <tr>
+                <td    >2</td>
+                <td      >1/26/26</td>
+                <td    ><a href="Assignment01/Assignment_01.html">Assignment01-AI Assisted Python</a></td>
+                <td    ><a href="Formative00/Formative00_4.html">Formative00_4</a></td>
+                <td    ><a href="https://eprofessor.azurewebsites.net/Project01/default.html" target="_blank" class="bg-info text-white">Project01</a>-file to D2L</td>
+                <td    >M1-Sensors</td>
+            </tr>
+            <tr>
+                <td  >2</td>
+                <td    >1/26/26</td>
+                <td  >&nbsp;</td>
+                <td  >Formative01-IDE</td>
+                <td  >Project02-Idea</td>
+                <td  >&nbsp;</td>
+            </tr>
+            <tr>
+                <td  >2</td>
+                <td    >1/26/26</td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+                <td  >Project04-IOT00</td>
+                <td  >&nbsp;</td>
+            </tr>
+            <tr>
+                <td  >3</td>
+                <td    >2/2/26</td>
+                <td  >Assignment02-Copilot</td>
+                <td  >Formative02-Library</td>
+                <td  >Project04-IOT01</td>
+                <td  >M1-Sensors</td>
+            </tr>
+            <tr>
+                <td  >4</td>
+                <td    >2/9/26</td>
+                <td  >Assignment03-Designing Functions</td>
+                <td  >&nbsp;</td>
+                <td  >Project04-IOT02</td>
+                <td  >M2-Sensor Mod</td>
+            </tr>
+            <tr>
+                <td    >5</td>
+                <td      >2/16/26</td>
+                <td    >Assignment04-Reading Python-Part1</td>
+                <td    ></td>
+                <td    >Project04-IOT03</td>
+                <td    >M2-Sensor Mod</td>
+            </tr>
+            <tr>
+                <td  >6</td>
+                <td    >2/23/26</td>
+                <td  >Assignment05-Reading Python-Part 2</td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+                <td  >M2-Sensor Mod</td>
+            </tr>
+            <tr>
+                <td  >7</td>
+                <td    >3/2/26</td>
+                <td  >Assignment06-Prompt Engineering</td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+                <td  >M3-Functions</td>
+            </tr>
+            <tr>
+                <td    >8</td>
+                <td      >3/9/26</td>
+                <td    >Assignment07-Problem Decomposition</td>
+                <td    >&nbsp;</td>
+                <td    ><a href="COBEvents/AP_speaker01.html">Speaker Reflection01</a></td>
+                <td    >M3-Asserts</td>
+            </tr>
+            <tr class="blockquote-reverse "> 
+                <td  >9</td>
+                <td    >3/16/26</td>  
+                <td >   S P R I N G &nbsp;&nbsp;   B R E A K   </td>
+                <td > S P R I N G &nbsp;&nbsp;   B R E A K</td>
+                <td> S P R I N G &nbsp;&nbsp;   B R E A K </td>
+                <td> &nbsp;</td>
+            </tr>
+            <tr>
+                <td  >10</td>
+                <td    >3/23/26</td>
+                <td  >Assignment08-Debugging</td>
+                <td  >Formative03-Shortcuts(optional)</td>
+                <td  >Project04-IOT13</td>
+                <td  >M4-Data Log</td>
+            </tr>
+            <tr>
+                <td  >11</td>
+                <td    >3/30/26</td>
+                <td  >Assignment09-Automation</td>
+                <td  >&nbsp;</td>
+                <td  >Project04-IOT22</td>
+                <td  >M4-Data Log</td>
+            </tr>
+            <tr>
+                <td  >12</td>
+                <td    >4/6/26</td>
+                <td  >Assignment10-Making Games</td>
+                <td  >Formative04-Pi GUI</td>
+                <td  >Project04-IOT29</td>
+                <td  >M4-Visuals</td>
+            </tr>
+            <tr>
+                <td  >13</td>
+                <td    >4/13/26</td>
+                <td  >Assignment11-Authorship ID-ML</td>
+                <td  >&nbsp;</td>
+                <td  >Project02-Demo</td>
+                <td  >M5-Dashboard</td>
+            </tr>
+            <tr>
+                <td  >14</td>
+                <td    >4/20/26</td>
+                <td  >Assignment12-Future Directions</td>
+                <td  ><a href="Formative00/Formative00_5.html">Formative00_5</a></td>
+                <td  >Project02-Demo</td>
+                <td  >M5-Dashboard</td>
+            </tr>
+            <tr>
+                <td  >15</td>
+                <td    >4/27/26</td>
+                <td  >&nbsp;</td>
+                <td  ><a href="Formative00/Formative00_6.html">Formative00_6</a></td>
+                <td  >Project02-Demo</td>
+                <td  >M5-Dashboard</td>
+            </tr>
+
+            <tr>
+                <td  >15</td>
+                <td    >4/27/26</td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+                <td  ><a href="COBEvents/AP_speaker02.html">Speaker Reflection02</a></td>
+                <td  >&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td  >16</td>
+                <td    >5/4/26</td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+                <td  >Project02-IoT Demo and Report</td>
+                <td  >&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td  >&nbsp;</td>
+                <td    >&nbsp;</td>
+                <td  >Late Work</td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+                <td  >&nbsp;</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+    <hr />
+
+
+    <footer>
+        <div id="licenseInfo" class="col-lg-12 text-muted"></div>
+        <div id="footerText" class="col-lg-12 text-muted"></div>
+    </footer>
+
+    <!-- ========== Script Includes (Order is Critical) ========== -->
+    <script src="../ReadOnly/jquery-1.js"></script>
+    <script src="../ReadOnly/bootstrap.js"></script>
+    <script src="studentConstants.js"></script>
+    <script src="../ReadOnly/courseConstants.js"></script>
+    <script src="../ReadOnly/domForms.js"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var f = document.forms["frmAssignment"];
+        if (f && f.elements["email"]) {
+            console.log("Email field before:", f.elements["email"].value);
+            console.log("studentEmailAddress:", typeof studentEmailAddress, studentEmailAddress);
+            f.elements["email"].value = typeof studentEmailAddress !== "undefined" ? studentEmailAddress : "undefined";
+            console.log("Email field after:", f.elements["email"].value);
+        } else {
+            console.log("frmAssignment or email field not found");
+        }
+    });
+</script>
+
+
+
+</body>
+</html>

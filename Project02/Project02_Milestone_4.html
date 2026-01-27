@@ -1,0 +1,61 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>Project02_Milestone_4.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+  </head>
+  <body>
+    <h1 id="project02-milestone-4-data-logging-simple-visualization">Project02 — Milestone 4: Data Logging + Simple Visualization</h1>
+    <p>
+      <strong>Timing:</strong> Weeks 10–12<br /><strong>Tools:</strong> Raspberry Pi + GrovePi+, laptop JupyterLab<br /><strong>Development Tool:</strong> VS Code SSH (Pi) + JupyterLab (analysis)<br /><strong>Submission:</strong> OneNote Artifact (PDF) + project files to D2L</p>
+    <hr />
+    <h2 id="objective">Objective</h2>
+    <p>Log sensor data to CSV and create a simple summary + plot.</p>
+    <hr />
+    <h2 id="student-tasks">Student Tasks</h2>
+    <ol>
+      <li>Write sensor values to CSV with timestamp/value/status; log <strong>50+ rows</strong>.</li>
+      <li>Transfer CSV to laptop.</li>
+      <li>In JupyterLab: load CSV, compute min/max/avg, create one line plot.</li>
+      <li>AI summary (required): ask for a business-friendly summary; write 3–5 sentences.</li>
+    </ol>
+    <hr />
+    <h2 id="vs-code-ssh-exercise-csv-logging-on-the-pi-required">VS Code SSH Exercise — CSV Logging on the Pi (Required)</h2>
+    <h3 id="task-5-create-the-logger-script-on-the-pi">Task 5 — Create the logger script on the Pi</h3>
+    <ol>
+      <li>Connect to the Pi with <strong>VS Code Remote - SSH</strong>.</li>
+      <li>Create: <code>milestone4_logger.py</code></li>
+      <li>Your script must write a CSV file on the Pi (50+ rows).</li>
+    </ol>
+    <p>Run:</p>
+    <pre>
+      <code class="language-bash">python3 milestone4_logger.py
+</code>
+    </pre>
+    <h3 id="task-6-troubleshooting-required">Task 6 — Troubleshooting (required)</h3>
+    <p>Simulate a “bad path” problem:</p>
+    <ul>
+      <li>Change the output filename to a folder that doesn’t exist → observe error</li>
+      <li>Fix by creating the folder or using a correct path</li>
+    </ul>
+    <h3 id="task-7-transfer-the-csv-to-your-laptop-for-jupyterlab-analysis">Task 7 — Transfer the CSV to your laptop for JupyterLab analysis</h3>
+    <p>Use the method shown in class (SCP, shared folder, or browser download).</p>
+    <p>Add to OneNote Artifact: proof of the CSV on the Pi + proof it opened on your laptop.</p>
+    <h2 id="onenote-artifact-requirements">OneNote Artifact Requirements</h2>
+    <ul>
+      <li>Evidence CSV created (screenshot/file)</li>
+      <li>Notebook snippet with summary + plot</li>
+      <li>AI prompt + summary</li>
+      <li>Reflection: what you learned from the plot</li>
+    </ul>
+  </body>
+</html>
